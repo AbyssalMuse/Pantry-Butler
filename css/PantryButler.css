@@ -1,0 +1,539 @@
+/* Common and theme styles for Pantry Butler */
+/* To do
+	Figure out why the scrollable class isn't working
+	Make a small scrollable class as well, for the Action menu in Meal Planning
+	Double-check scrollable on mobile
+	
+	Table color standardization - something better than gray and blue
+		Initial Setup
+*/
+
+/* Remove text shadow from code blocks */
+pre {
+	text-shadow: none !important;
+}
+
+/* Color and theme
+** Dark grey background
+** Use text-shadow to indicate selection/hover
+**
+** Background color, text shadows borrowed from Carousel
+** Tinkered from there for appropriate matching colors
+** Idea for shadow gradients on page sides
+*/
+/* HTML */
+body {
+	background: #666;
+	color: #FFF;
+	font-weight: 500;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+}
+a {
+	color: #0088cc;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+table {
+  max-width: 100%;
+  background-color: #bababa;
+}
+/* Bootstrap override for table colors */
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #222244;
+}
+
+/* Curtains of shadow gradient on left and right of page */
+/* Width = 15% for phones, looks right; 5% otherwise */
+/* Mostly a copy of Bootstrap's carousel control class */
+.curtain {
+	width: 15%;
+}
+@media (min-width: 400px) {
+	.curtain {
+		width: 5%;
+	}
+}
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+.curtain.left {
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, .5) 0%), color-stop(rgba(0, 0, 0, .0001) 100%));
+  background-image:         linear-gradient(to right, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+  background-repeat: repeat-x;
+}
+.curtain.right {
+  right: 0;
+  left: auto;
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, .0001) 0%), color-stop(rgba(0, 0, 0, .5) 100%));
+  background-image:         linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+  background-repeat: repeat-x;
+}
+/* Keep this - background flows better around the navbar with it */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Text */
+/* Adds weight for links/selections while hovering*/
+.text-shadow-hover:hover {
+	color: #FFF !important;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 1.0) !important;
+}
+
+/**/
+
+/* Panels */
+.panel-heading {
+	background-color: silver !important;
+}
+h4.panel-title {
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.panel-footer {
+	background-color: silver !important;
+}
+.panel-body {
+	background-color: #5a5a5a !important; 
+	border-color: black !important;
+	color: #FFF !important;
+}
+/* Not sure why I tagged this to panel instead of panel-heading
+   It works, so following an example?
+*/
+.panel .panel-primary {
+	
+}
+.panel .panel-success {
+	
+}
+.panel .panel-info {
+	
+}
+.panel .panel-warning {
+	
+}
+.panel .panel-danger {
+	
+}
+
+/* List item */
+/* To do: Change the class to li, or override Bootstrap's .list-group-item */
+.list-grey {
+	background-color: #5a5a5a !important; 
+	border-color: black !important;
+	color: #FFF !important;
+}
+.list-grey > a {
+	color: #FFF !important;
+}
+.list-grey li:hover>a {
+	background-color: #5a5a5a !important; 
+	border-color: black !important;
+	color: #FFF !important;
+	text-shadow: 0px 1px 2px rgba(0, 0, 0, 1.0);
+}
+.list-group-item {
+	background-color: #5a5a5a;
+	color: #FFFFFF;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+	border: 1px solid #222222;
+}
+
+/* Forms */
+/* Bootstrap overrides */
+.help-block {
+  color: #FFF;
+}
+
+/* Other bootstrap overrides */
+.dropdown-menu {
+  background-color: #5a5a5a;
+}
+
+/* Navbar fix/placement */
+/* Top position should really depend on navbar 
+   Likewise, left and right should depend on prev/next area
+*/
+body > .container.center-block {
+	top: 60px !important;
+	position: relative !important;
+}
+
+/* Color/theme generated at http://www.stylebootstrap.info/index.php */
+/* Buttons */
+.btn {
+  color: #000000;
+  background-image: -moz-linear-gradient(top, #efefef, #ffffff);
+  background-image: -ms-linear-gradient(top, #efefef, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#efefef), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #efefef, #ffffff);
+  background-image: -o-linear-gradient(top, #efefef, #ffffff);
+  background-image: linear-gradient(top, #efefef, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'efefef, endColorstr='#'ffffff, GradientType=0);
+}
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: #000000;
+  background-color: #dddddd;
+}
+
+.btn-primary {
+  background-color: #006dcc;
+  color: #ffffff;
+  background-image: -moz-linear-gradient(top, #eded00, #bfbf3b);
+  background-image: -ms-linear-gradient(top, #eded00, #bfbf3b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eded00), to(#bfbf3b));
+  background-image: -webkit-linear-gradient(top, #eded00, #bfbf3b);
+  background-image: -o-linear-gradient(top, #eded00, #bfbf3b);
+  background-image: linear-gradient(top, #eded00, #bfbf3b);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'eded00, endColorstr='#'bfbf3b, GradientType=0);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #bfbf3b;
+}
+
+.btn-warning {
+  color: #ffffff;
+  background-image: -moz-linear-gradient(top, #a86f1f, #c48227);
+  background-image: -ms-linear-gradient(top, #a86f1f, #c48227);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#a86f1f), to(#c48227));
+  background-image: -webkit-linear-gradient(top, #a86f1f, #c48227);
+  background-image: -o-linear-gradient(top, #a86f1f, #c48227);
+  background-image: linear-gradient(top, #a86f1f, #c48227);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'a86f1f, endColorstr='#'c48227, GradientType=0);
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  background-color: #c48227;
+}
+
+.btn-danger {
+  color: #ffffff;
+  background-image: -moz-linear-gradient(top, #e5241d, #bd362f);
+  background-image: -ms-linear-gradient(top, #e5241d, #bd362f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5241d), to(#bd362f));
+  background-image: -webkit-linear-gradient(top, #e5241d, #bd362f);
+  background-image: -o-linear-gradient(top, #e5241d, #bd362f);
+  background-image: linear-gradient(top, #e5241d, #bd362f);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'e5241d, endColorstr='#'bd362f, GradientType=0);
+}
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  background-color: #bd362f}
+  
+.btn-success {
+  color: #ffffff;
+  background-image: -moz-linear-gradient(top, #146d14, #51a351);
+  background-image: -ms-linear-gradient(top, #146d14, #51a351);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#146d14), to(#51a351));
+  background-image: -webkit-linear-gradient(top, #146d14, #51a351);
+  background-image: -o-linear-gradient(top, #146d14, #51a351);
+  background-image: linear-gradient(top, #146d14, #51a351);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'146d14, endColorstr='#'51a351, GradientType=0);
+}
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #51a351;
+}
+
+.btn-info {
+  color: #ffffff;
+  background-image: -moz-linear-gradient(top, #399696, #56ffff);
+  background-image: -ms-linear-gradient(top, #399696, #56ffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#399696), to(#56ffff));
+  background-image: -webkit-linear-gradient(top, #399696, #56ffff);
+  background-image: -o-linear-gradient(top, #399696, #56ffff);
+  background-image: linear-gradient(top, #399696, #56ffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'399696, endColorstr='#'56ffff, GradientType=0);
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #56ffff;
+}
+
+/* Alerts */
+.alert {
+  padding: 8px 35px 8px 14px;
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+}
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert-success, .alert-success .alert-heading {
+  color: #468847;
+}
+.alert-danger, .alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading {
+  color: #b94a48;
+}
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-info, .alert-info .alert-heading {
+  color: #3a87ad;
+}
+/* Labels and badges */
+.label,
+.badge {
+  padding: 1px 3px 2px;
+  font-size: 9.75px;
+  color: #ffffff;
+  background-color: #999999;
+}
+.label-important,
+.badge-important {
+  background-color: #468847;
+}
+.label-warning,
+.badge-warning {
+  background-color: #b94a48;
+}
+.label-success,
+.badge-success {
+  background-color: #f89406;
+}
+.label-info,
+.badge-info {
+   background-color: #3a87ad;
+}
+
+
+
+/* Pull in from Cook.css - never seems to let me override it */
+/* Attempted to remove link-status from accordion collapser/header anchor "buttons"
+   Managed to keep the color white
+   ... border box seems to be only on Tablet Firefox
+       tried to at least match color to background, but that didn't work
+*/
+
+.a-override {
+	color: #fff;
+	text-decoration: none !important; 
+	border: none !important; 
+	border-style: none !important;
+}
+.a-override:link {
+	color: #fff;
+	text-decoration: none !important; 
+	border: none !important; 
+	border-style: none !important;
+}
+.a-override:visited {
+	color: #fff;
+	text-decoration: none !important; 
+	border: none !important; 
+	border-style: none !important;
+}
+.a-override:hover {
+	color: #fff;
+	text-decoration: none !important; 
+	border: none !important; 
+	border-style: none !important;
+}
+.a-override:active {
+	color: #fff;
+	text-decoration: none !important; 
+	border: none !important; 
+	border-style: none !important;
+}
+/* Full screen-ish caption
+   Keep right and left at 15%, any lower and chevrons overlap text on phones */
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  top: 50px;
+  left: 15%;
+  z-index: 50;
+  color: #fff;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+/* Place indicators between Recipe name and time left */
+.carousel-indicators-top {
+  top: 105px;
+}
+
+/* Bootstrap override
+   Caption disappears otherwise
+*/
+.carousel-inner {
+	width: 100%; 
+	height: 100%;
+}
+/*	Recipe specific changes
+	Need to find background images first and play around with fading image into background with text over it
+*/
+.recipeIngredient {
+	
+}
+.recipeAmount {
+	float: right;
+}
+.recipeTool {
+	
+}
+.recipeTitle {
+	text-align: center;
+}
+.recipeTime {
+	text-align: center;
+}
+
+
+/* Extra classes and helpers */
+/* No padding */
+.no-padding {
+	padding: 0 !important;
+}
+
+/* Scroll panes for dropdown menus */
+.dropdown-menu.scrollable {
+	max-height: 187px;
+	overflow-y: auto;
+	min-width: 187px;
+	position: relative;
+}
+.list-group.list-height-limit {
+	max-height: 210px;
+	overflow-y: auto;
+	position: relative;
+}
+.list-group-item.no-border {
+	background-color: #dadada;
+	padding: 0px 0px;
+	margin-bottom: 0px;
+	border: none;
+}
+
+/* Spacers to pad left and right */
+.spacer-left {
+	margin-left: 0.5em !important;
+}
+.spacer-right {
+	margin-right: 0.5em !important;
+}
+@media (min-width: 768px) {
+	.spacer-left {
+		margin-left: 1em !important;
+	}
+	.spacer-right {
+		margin-right: 1em !important;
+	}
+}
+
+/* Own visibility classes
+   Many cases where tablet portrait was wide enough, but it's combined with phone as xs in bootstrap
+   Code copied from bootstrap, just narrowed to two divisions (phone/tablet) at 400px width
+   ... Attempted to create new xxs class and override bootstrap xs - it didn't work well and somehow messed around default and medium classes
+*/
+.visible-phone,
+tr.visible-phone,
+th.visible-phone,
+td.visible-phone {
+  display: none !important;
+}
+@media (max-width: 399px) {
+  .visible-phone {
+    display: block !important;
+  }
+  table.visible-phone {
+    display: table;
+  }
+  tr.visible-phone {
+    display: table-row !important;
+  }
+  th.visible-phone,
+  td.visible-phone {
+    display: table-cell !important;
+  }
+}
+.visible-tablet,
+tr.visible-tablet,
+th.visible-tablet,
+td.visible-tablet {
+  display: none !important;
+}
+@media (min-width: 400px) {
+  .visible-tablet {
+    display: block !important;
+  }
+  table.visible-tablet {
+    display: table;
+  }
+  tr.visible-tablet {
+    display: table-row !important;
+  }
+  th.visible-tablet,
+  td.visible-tablet {
+    display: table-cell !important;
+  }
+}
+
+@media (max-width: 400px) {
+	.hidden-phone {
+		display: none !important;
+	}
+}
+@media (min-width: 400px) {
+	.hidden-tablet {
+		display: none !important;
+	}
+}
+
+/* Navbar pill form for panel labels
+   Use !important because bootstrap's css specificity always wins
+   Radius and height used to form pill shape, larger than text
+   Padding and margin used to center pill in panel and keep text lined with title
+     These two values must match, padding positive and margin negative
+     Margin-bottom doesn't move the pill
+     Specify pixels instead of % or em to line things up correctly
+*/
+.force-pill {
+	border-radius: 0.3em !important;
+  	padding-top: 0.4em !important;
+  	margin-top: -0.4em !important;
+}
